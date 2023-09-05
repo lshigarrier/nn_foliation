@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/loic/lsg/code/nn_foliation/isometry.py", line 318, in <module>
+    main()
+  File "/home/loic/lsg/code/nn_foliation/isometry.py", line 284, in main
+    _ = training(param, device, train_loader, test_loader, model, attack=attack)
+  File "/home/loic/lsg/code/nn_foliation/isometry.py", line 232, in training
+    epoch_loss, epoch_entropy, epoch_reg = train(param, model, device, train_loader, optimizer, epoch, lmbda)
+  File "/home/loic/lsg/code/nn_foliation/isometry.py", line 83, in train
+    cross_entropy, reg = iso_loss_transform(output, target, data, param['epsilon_l2'], model, device)
+  File "/home/loic/lsg/code/nn_foliation/isometry.py", line 55, in iso_loss_transform
+    assert not torch.isnan(jac).any()
+AssertionError

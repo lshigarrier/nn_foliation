@@ -1,0 +1,80 @@
+name : v2_adv_train # v1_mnist | v2_adv_train | v3_robust_mnist | v4_robust_mnist
+model : 00010.pt # 00010.pt | 00002.pt for v4
+train : False
+load : True
+seed : 1
+model_list :
+    - 
+        name : v1_mnist
+        model : 00010.pt
+    -
+        name : v2_adv_train 
+        model : 00010.pt
+    -
+        name: v4_robust_mnist
+        model : 00002.pt
+
+# model
+
+channels1 : 32
+channels2 : 64
+hidden : 128
+
+# training
+
+robust_mnist : False
+epochs : 10
+batch_size : 64
+test_batch_size : 1000
+learning_rate : 0.01
+verbose : True
+log_interval : 100
+save_step : 1
+
+# attack
+
+attack_batch_size : 1
+one_eps : 0.1
+epsilons :
+    - 0
+    - .1
+    - .2
+    - .3
+examples : 5
+
+# horizontal path
+
+step : 0.1
+max_iter_path : 15000 # 200 | 10000 | 5000
+log_interval_path : 100
+tol : 0 # 0.001
+idx : 0
+
+# adversarial training
+
+adv_train : False
+perturbation_type : linf # l2 | linf
+epsilon : 0.3
+alpha : 0.01 # 0.01 | 0.05
+max_iter : 100 # 40 | 20 | 100
+
+# robust dataset
+
+robust_data : False
+robust_batch_size : 1
+robust_max_iter : 500 # 50 | 100 | 200 | 500
+robust_step : 0.1 # 0.1 | 0.2 | 0.4 
+robust_file : 'data/mnist/robust_v2/robust_mnist'
+target_file : 'data/mnist/robust_v2/robust_target_mnist'
+
+# adversarial examples
+
+nb_adv : 100
+org_file : 'data/mnist/adv/original_inf_train_'
+adv_file : 'data/mnist/adv/adversarial_inf_train_'
+nb_img : 100 # 20 | 100
+img_dist : 'data/mnist/adv/img_dist_train_same_'
+adv_dist : 'data/mnist/adv/adv_dist_train_same_'
+
+
+    

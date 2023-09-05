@@ -1,0 +1,47 @@
+data_file : data/data_xdsin_v2.txt # data/data_xdsin.txt ; data/data_xdsin_v2.txt ; data/data_xdlinear_full.txt
+name : xdsin_exp # xdsin ; xdsin_v2 ; xdlinear
+model_pth : 00499.pth
+
+system : sin # sin ; linear
+eps : -inf
+
+test : accuracy # traj ; accuracy
+recursive : True
+datatype : out # train ; val ; out ; in
+
+obs : 3
+preds : 1
+hid_size : 8
+layers : 1
+cpu : False
+verbose : True
+max_epoch : 500
+batch_size : 64
+resume_train : False
+save_step : 1
+
+color : True
+
+tlim : 20
+nb_t : 2001
+freq : 100
+version : 3
+dt : 2e-2
+xlim : 3
+plotlim : 3
+lim0 : 2
+lim1 : -2
+lim2 : 0
+acc : True
+rotation : False
+
+typeplot : sigma # save ; sigma
+prefix : kernel_sin # kernel ; kernel_sin ; kernel_linear
+sigma_file : data/sigmas_exp.pickle # data/sigmas.pickle ; data/sigmas_v2.pickle ; data/sigmas_exp.pickle
+
+dx : 1e-2
+n1 : 11
+n2 : 0
+n3 : 51
+gentype : plot # plot ; write
+
